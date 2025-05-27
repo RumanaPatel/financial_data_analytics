@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: financial-analytics-460711
+    schema: jaffle_shop
+    description: Raw data from our e-commerce platform
+
+    tables:
+      - name: customers
+        description: Customer master data
+        columns:
+          - name: id
+            description: Unique identifier for each customer
+
+      - name: orders
+        description: Customer order history
+        columns:
+          - name: user_id
+            description: Foreign key to customers
+
+  - name: stripe
+    database: financial-analytics-460711
+    schema: jaffle_shop
+    description: Stripe payment processing data
+
+    tables:
+      - name: payments
+        description: Payment transactions
+        columns:
+          - name: orderid
+            description: Foreign key to orders      
